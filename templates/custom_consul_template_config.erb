@@ -1,0 +1,11 @@
+consul {
+address = "<%= scope.lookupvar('consul_template::config:consul_host') %>:<%= scope.lookupvar('consul_template::config:consul_port') %>"
+token = "<%= scope.lookupvar('consul_template::config:consul_token') %>"
+retry {
+ enabled = <%= scope.lookupvar('consul_template::config:consul_retry_enabled') %> 
+ attempts = <%= scope.lookupvar('consul_template::config:consul_retry_attempts') %>
+ backoff = "<%= scope.lookupvar('consul_template::config:consul_retry_backoff') %>"
+ max_backoff = "<%= scope.lookupvar('consul_template::config:consul_retry_max_backoff') %>"
+ }
+}
+
